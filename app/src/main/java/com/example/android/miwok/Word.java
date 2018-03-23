@@ -6,17 +6,20 @@ public class Word {
     private String mDefaultTranslation;
     private int mImageResourceId;
     private boolean mImage;
+    private int mAudioResourceId;
 
-    public Word(String mDefaultTranslation, String mMiwokTranslation){
+    public Word(String mDefaultTranslation, String mMiwokTranslation, int mAudioResourceId){
         this.mMiwokTranslation = mMiwokTranslation;
         this.mDefaultTranslation = mDefaultTranslation;
+        this.mAudioResourceId = mAudioResourceId;
         mImage = false;
     }
 
-    public Word(String mDefaultTranslation, String mMiwokTranslation, int mImageResourceId){
+    public Word(String mDefaultTranslation, String mMiwokTranslation, int mImageResourceId, int mAudioResourceId){
         this.mMiwokTranslation = mMiwokTranslation;
         this.mDefaultTranslation = mDefaultTranslation;
         this.mImageResourceId = mImageResourceId;
+        this.mAudioResourceId = mAudioResourceId;
         mImage = true;
     }
 
@@ -30,6 +33,10 @@ public class Word {
 
     public int getImageResourceId(){
         return mImageResourceId;
+    }
+
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 
     public boolean getImage(){
