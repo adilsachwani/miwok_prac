@@ -15,6 +15,12 @@ public class NumbersActivity extends AppCompatActivity {
     ListView mListView;
     WordAdapter mAdapter;
     MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener mCompleteListner = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +57,23 @@ public class NumbersActivity extends AppCompatActivity {
 
                 Word word = Words.get(i);
 
+                releaseMediaPlayer();
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(mCompleteListner);
 
             }
         });
 
 
     }
+
+    private void releaseMediaPlayer() {
+
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+    }
+
 }
