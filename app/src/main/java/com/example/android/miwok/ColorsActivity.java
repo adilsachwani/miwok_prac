@@ -42,7 +42,7 @@ public class ColorsActivity extends AppCompatActivity {
 
                 Word word = Words.get(i);
 
-                mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getImageResourceId());
+                mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
 
             }

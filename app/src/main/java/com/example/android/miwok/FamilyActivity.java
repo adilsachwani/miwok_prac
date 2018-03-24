@@ -44,7 +44,7 @@ public class FamilyActivity extends AppCompatActivity {
 
                 Word word = Words.get(i);
 
-                mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getImageResourceId());
+                mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
 
             }

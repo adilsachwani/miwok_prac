@@ -44,7 +44,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
                 Word word = Words.get(i);
 
-                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getImageResourceId());
+                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
 
             }

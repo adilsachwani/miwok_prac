@@ -51,7 +51,7 @@ public class NumbersActivity extends AppCompatActivity {
 
                 Word word = Words.get(i);
 
-                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getImageResourceId());
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
 
             }
