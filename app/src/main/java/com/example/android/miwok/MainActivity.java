@@ -17,6 +17,8 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -25,8 +27,9 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView numbersButton, phrasesButton, colorsButton, familyButton;
-    Intent numbersIntent, phrasesIntent, colorsIntent, familyIntent;
+    ViewPager viewPager;
+    CategoryAdapter adapter;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,42 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        colorsButton = (TextView) findViewById(R.id.colors);
-        familyButton = (TextView) findViewById(R.id.family);
-        numbersButton = (TextView) findViewById(R.id.numbers);
-        phrasesButton = (TextView) findViewById(R.id.phrases);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        adapter = new CategoryAdapter(this,getSupportFragmentManager());
 
-        colorsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                colorsIntent = new Intent(MainActivity.this,ColorsActivity.class);
-                startActivity(colorsIntent);
-            }
-        });
-
-        familyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                familyIntent = new Intent(MainActivity.this,FamilyActivity.class);
-                startActivity(familyIntent);
-            }
-        });
-
-        numbersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                numbersIntent = new Intent(MainActivity.this,NumbersActivity.class);
-                startActivity(numbersIntent);
-            }
-        });
-
-        phrasesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
-                startActivity(phrasesIntent);
-            }
-        });
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
 }
